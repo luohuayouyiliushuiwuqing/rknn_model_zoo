@@ -4,8 +4,8 @@ source activate rk-yolov8
 export WEIGHT_BASE_ROOT="/home/igs/yhj_demo/v8/runs"
 
 # 定义环境变量
-#export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8/weights"
-export WEIGHT_ROOT="/home/igs/yhj_demo/v8/runs/Dronecoco55/train_small_opt/Dronecoco55_yolov8_small1/weights"
+export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8/weights"
+#export WEIGHT_ROOT="/home/igs/yhj_demo/v8/runs/Dronecoco55/train_small_opt/Dronecoco55_yolov8_small1/weights"
 
 export RKNN_ROOT="/home/igs/yhj_demo/RknnProjects/Projects/rknn_model_zoo/"
 export ONNX_PATH="$WEIGHT_ROOT/export_rknn.onnx"
@@ -46,7 +46,8 @@ export LD_LIBRARY_PATH=./lib
 #./rknn_yolov8_demo_zero_copy model/export_rknn.rknn model/img026.jpg
 ./rknn_yolov8_demo model/export_rknn_mixing_accuracy.rknn model/img026.jpg
 #./rknn_yolov8_demo_zero_copy model/export_rknn_mixing_accuracy.rknn model/img026.jpg
-#rm -rf /root/Project/rknn_model_zoo/install
+rm -rf /root/Project/rknn_model_zoo/install
 EOF
 
+echo "igs"|sudo -S rm -rf build install
 

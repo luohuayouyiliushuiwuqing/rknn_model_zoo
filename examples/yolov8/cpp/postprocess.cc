@@ -214,7 +214,7 @@ static void compute_dfl(float* tensor, int dfl_len, float* box){
             exp_t[i] = exp(tensor[i+b*dfl_len]);
             exp_sum += exp_t[i];
         }
-        
+
         for (int i=0; i< dfl_len; i++){
             acc_sum += exp_t[i]/exp_sum *i;
         }
@@ -301,9 +301,9 @@ static int process_i8(int8_t *box_tensor, int32_t box_zp, float box_scale,
                       int8_t *score_tensor, int32_t score_zp, float score_scale,
                       int8_t *score_sum_tensor, int32_t score_sum_zp, float score_sum_scale,
                       int grid_h, int grid_w, int stride, int dfl_len,
-                      std::vector<float> &boxes, 
-                      std::vector<float> &objProbs, 
-                      std::vector<int> &classId, 
+                      std::vector<float> &boxes,
+                      std::vector<float> &objProbs,
+                      std::vector<int> &classId,
                       float threshold)
 {
     int validCount = 0;
@@ -367,11 +367,11 @@ static int process_i8(int8_t *box_tensor, int32_t box_zp, float box_scale,
     return validCount;
 }
 
-static int process_fp32(float *box_tensor, float *score_tensor, float *score_sum_tensor, 
+static int process_fp32(float *box_tensor, float *score_tensor, float *score_sum_tensor,
                         int grid_h, int grid_w, int stride, int dfl_len,
-                        std::vector<float> &boxes, 
-                        std::vector<float> &objProbs, 
-                        std::vector<int> &classId, 
+                        std::vector<float> &boxes,
+                        std::vector<float> &objProbs,
+                        std::vector<int> &classId,
                         float threshold)
 {
     int validCount = 0;
@@ -546,7 +546,7 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
         grid_h = app_ctx->output_attrs[box_idx].dims[1];
         grid_w = app_ctx->output_attrs[box_idx].dims[2];
         stride = model_in_h / grid_h;
-        
+
         if (app_ctx->is_quant) {
             validCount += process_i8_rv1106((int8_t *)_outputs[box_idx]->virt_addr, app_ctx->output_attrs[box_idx].zp, app_ctx->output_attrs[box_idx].scale,
                                 (int8_t *)_outputs[score_idx]->virt_addr, app_ctx->output_attrs[score_idx].zp,
@@ -592,14 +592,14 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
             validCount += process_i8((int8_t *)_outputs[box_idx].buf, app_ctx->output_attrs[box_idx].zp, app_ctx->output_attrs[box_idx].scale,
                                      (int8_t *)_outputs[score_idx].buf, app_ctx->output_attrs[score_idx].zp, app_ctx->output_attrs[score_idx].scale,
                                      (int8_t *)score_sum, score_sum_zp, score_sum_scale,
-                                     grid_h, grid_w, stride, dfl_len, 
+                                     grid_h, grid_w, stride, dfl_len,
                                      filterBoxes, objProbs, classId, conf_threshold);
 #endif
         }
         else
         {
             validCount += process_fp32((float *)_outputs[box_idx].buf, (float *)_outputs[score_idx].buf, (float *)score_sum,
-                                       grid_h, grid_w, stride, dfl_len, 
+                                       grid_h, grid_w, stride, dfl_len,
                                        filterBoxes, objProbs, classId, conf_threshold);
         }
 #endif

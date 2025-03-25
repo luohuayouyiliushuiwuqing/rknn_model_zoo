@@ -65,7 +65,7 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
     printf("model input num: %d, output num: %d\n", io_num.n_input, io_num.n_output);
 
     // Get Model Input Info
-    printf("input tensors:\n");
+//    printf("input tensors:\n");
     rknn_tensor_attr input_attrs[io_num.n_input];
     memset(input_attrs, 0, sizeof(input_attrs));
     for (int i = 0; i < io_num.n_input; i++)
@@ -77,11 +77,11 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
             printf("rknn_query fail! ret=%d\n", ret);
             return -1;
         }
-        dump_tensor_attr(&(input_attrs[i]));
+//        dump_tensor_attr(&(input_attrs[i]));
     }
 
     // Get Model Output Info
-    printf("output tensors:\n");
+//    printf("output tensors:\n");
     rknn_tensor_attr output_attrs[io_num.n_output];
     memset(output_attrs, 0, sizeof(output_attrs));
     for (int i = 0; i < io_num.n_output; i++)
@@ -93,7 +93,7 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
             printf("rknn_query fail! ret=%d\n", ret);
             return -1;
         }
-        dump_tensor_attr(&(output_attrs[i]));
+//        dump_tensor_attr(&(output_attrs[i]));
     }
 
     // Set to context
