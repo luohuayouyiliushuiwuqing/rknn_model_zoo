@@ -4,7 +4,8 @@ source activate rk-yolov8
 export WEIGHT_BASE_ROOT="/home/igs/yhj_demo/v8/runs"
 
 # 定义环境变量
-export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8/weights"
+#export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8/weights"
+export WEIGHT_ROOT="/home/igs/yhj_demo/v8/runs/Dronecoco55/train_small_opt/Dronecoco55_yolov8_small1/weights"
 
 export RKNN_ROOT="/home/igs/yhj_demo/RknnProjects/Projects/rknn_model_zoo/"
 export ONNX_PATH="$WEIGHT_ROOT/export_rknn.onnx"
@@ -12,15 +13,15 @@ export RKNN_PATH="$WEIGHT_ROOT/export_rknn.rknn"
 export RKNN_MIXING_ACCURACY_PATH="$WEIGHT_ROOT/export_rknn_mixing_accuracy.rknn"
 export DATASET_PATH="$RKNN_ROOT/datasets/new_data/dataset_outdoor.txt"
 
-cd examples/yolov8/python
-rm -rf check*
-rm -rf export_rknn*
-rm -rf snapshot_*
-
-python convert.py  --onnx_path $ONNX_PATH --dataset $DATASET_PATH
-
-python mixing_accuracy1.py  --onnx_path $ONNX_PATH --dataset $DATASET_PATH
-python mixing_accuracy2.py --out_rknn_path $RKNN_PATH
+#cd examples/yolov8/python
+#rm -rf check*
+#rm -rf export_rknn*
+#rm -rf snapshot_*
+#
+#python convert.py  --onnx_path $ONNX_PATH --dataset $DATASET_PATH
+#
+#python mixing_accuracy1.py  --onnx_path $ONNX_PATH --dataset $DATASET_PATH
+#python mixing_accuracy2.py --out_rknn_path $RKNN_PATH
 
 echo "igs"|sudo -S rm -rf build install
 
@@ -43,7 +44,7 @@ cd /root/Project/rknn_model_zoo/install/rk3588_linux_aarch64/rknn_yolov8_demo/
 export LD_LIBRARY_PATH=./lib
 ./rknn_yolov8_demo model/export_rknn.rknn model/img026.jpg
 #./rknn_yolov8_demo_zero_copy model/export_rknn.rknn model/img026.jpg
-#./rknn_yolov8_demo model/export_rknn_mixing_accuracy.rknn model/img026.jpg
+./rknn_yolov8_demo model/export_rknn_mixing_accuracy.rknn model/img026.jpg
 #./rknn_yolov8_demo_zero_copy model/export_rknn_mixing_accuracy.rknn model/img026.jpg
 #rm -rf /root/Project/rknn_model_zoo/install
 EOF
