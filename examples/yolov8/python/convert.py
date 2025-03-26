@@ -4,7 +4,6 @@
 import argparse
 import glob
 import os
-import sys
 
 from rknn.api import RKNN
 

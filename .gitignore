@@ -56,3 +56,5 @@ unittest/env_config.py
 
 /examples/yolov8/python/snapshot_convert
 /examples/yolov8/python/snapshot_mixing_accuracy
+
+/.idea

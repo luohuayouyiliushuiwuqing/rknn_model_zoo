@@ -1,17 +1,3 @@
-// Copyright (c) 2021 by Rockchip Electronics Co., Ltd. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 #include "yolov8.h"
 
 #include <math.h>
@@ -24,6 +10,7 @@
 #include <set>
 #include <vector>
 #define LABEL_NALE_TXT_PATH "./model/dataset.txt"
+#define default_branch 3
 
 static char *labels[OBJ_CLASS_NUM];
 
@@ -528,7 +515,7 @@ int post_process(rknn_app_context_t *app_ctx, void *outputs, letterbox_t *letter
 #else
     int dfl_len = app_ctx->output_attrs[0].dims[1] /4;
 #endif
-    int output_per_branch = app_ctx->io_num.n_output / 3;
+    int output_per_branch = app_ctx->io_num.n_output / default_branch;
     for (int i = 0; i < 3; i++)
     {
 #if defined(RV1106_1103)

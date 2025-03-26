@@ -1,13 +1,12 @@
-
-chip_name=0
+chip_name=rk3588
 freq_set_status=0
 
-usage()
-{
-    echo "USAGE: ./scaling_frequency.sh -c {chip_name} [-h]"
-    echo "  -c:  chip_name, such as rv1126 / rk3588"
-    echo "  -h:  Help"
-}
+#usage()
+#{
+#    echo "USAGE: ./scaling_frequency.sh -c {chip_name} [-h]"
+#    echo "  -c:  chip_name, such as rv1126 / rk3588"
+#    echo "  -h:  Help"
+#}
 
 # print_and_compare_result want result
 print_and_compare_result()

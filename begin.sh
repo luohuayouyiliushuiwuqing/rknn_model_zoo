@@ -4,7 +4,7 @@ source activate rk-yolov8
 export WEIGHT_BASE_ROOT="/home/igs/yhj_demo/v8/runs"
 
 # 定义环境变量
-export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8-p2-small1/weights"
+export WEIGHT_ROOT="$WEIGHT_BASE_ROOT/Drone_mixout73/train_server/yolov8-detects-bifpn-add3-small/weights"
 #export WEIGHT_ROOT="/home/igs/yhj_demo/v8/runs/Dronecoco55/train_small_opt/Dronecoco55_yolov8_small1/weights"
 
 export RKNN_ROOT="/home/igs/yhj_demo/RknnProjects/Projects/rknn_model_zoo/"
