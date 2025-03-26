@@ -50,3 +50,9 @@ result/
 # for unittest
 unittest/example_test_result
 unittest/env_config.py
+
+
+/datasets
+
+/examples/yolov8/python/snapshot_convert
+/examples/yolov8/python/snapshot_mixing_accuracy
