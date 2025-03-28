@@ -1,6 +1,6 @@
 #!/bin/bash
 # GCC编译器路径设置
-GCC_COMPILER=/home/igs/yhj_demo/RknnProjects/Projects/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu
+GCC_COMPILER=/home/igs/yhj_demo/RknnProjects/GCC/gcc-linaro-6.3.1-2017.05-x86_64_aarch64-linux-gnu/bin/aarch64-linux-gnu
 
 set -e  # 出现错误时停止脚本
 

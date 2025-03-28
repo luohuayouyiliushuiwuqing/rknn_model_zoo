@@ -1,17 +1,3 @@
-// Copyright (c) 2023 by Rockchip Electronics Co., Ltd. All Rights Reserved.
-//
-// Licensed under the Apache License, Version 2.0 (the "License");
-// you may not use this file except in compliance with the License.
-// You may obtain a copy of the License at
-//
-//     http://www.apache.org/licenses/LICENSE-2.0
-//
-// Unless required by applicable law or agreed to in writing, software
-// distributed under the License is distributed on an "AS IS" BASIS,
-// WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-// See the License for the specific language governing permissions and
-// limitations under the License.
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -65,7 +51,7 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
     printf("model input num: %d, output num: %d\n", io_num.n_input, io_num.n_output);
 
     // Get Model Input Info
-//    printf("input tensors:\n");
+    printf("input tensors:\n");
     rknn_tensor_attr input_attrs[io_num.n_input];
     memset(input_attrs, 0, sizeof(input_attrs));
     for (int i = 0; i < io_num.n_input; i++)
@@ -77,11 +63,11 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
             printf("rknn_query fail! ret=%d\n", ret);
             return -1;
         }
-//        dump_tensor_attr(&(input_attrs[i]));
+        dump_tensor_attr(&(input_attrs[i]));
     }
 
     // Get Model Output Info
-//    printf("output tensors:\n");
+    printf("output tensors:\n");
     rknn_tensor_attr output_attrs[io_num.n_output];
     memset(output_attrs, 0, sizeof(output_attrs));
     for (int i = 0; i < io_num.n_output; i++)
@@ -93,7 +79,7 @@ int init_yolov8_model(const char *model_path, rknn_app_context_t *app_ctx)
             printf("rknn_query fail! ret=%d\n", ret);
             return -1;
         }
-//        dump_tensor_attr(&(output_attrs[i]));
+        dump_tensor_attr(&(output_attrs[i]));
     }
 
     // Set to context

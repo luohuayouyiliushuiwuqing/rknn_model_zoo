@@ -140,7 +140,7 @@ if __name__ == '__main__':
     print(colorstr("bright_red", "==================精度分析=================="))
 
     rknn.accuracy_analysis(
-        inputs=["/home/igs/yhj_demo/RknnProjects/Projects/rknn_model_zoo/datasets/new_data/dataset_outdoor/img019.jpg"],
+        inputs=["/home/igs/yhj_demo/RknnProjects/rknn_model_zoo/datasets/new_data/dataset_outdoor/img019.jpg"],
         output_dir="./snapshot_convert",
         target=platform,
         device_id=device_id,
